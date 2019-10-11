@@ -9,6 +9,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' //lang i18n
 
+import Home from './Home.vue'
+
 Vue.use(ElementUI, { locale })
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
@@ -16,9 +18,15 @@ Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+// new Vue({
+//   components: { App },
+//   router,
+//   store,
+//   template: '<App/>'
+// }).$mount('#app')
+
 new Vue({
-  components: { App },
+  el: '#app',
   router,
-  store,
-  template: '<App/>'
-}).$mount('#app')
+  render: h => h(Home)
+})

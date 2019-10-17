@@ -16,9 +16,17 @@ Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
-  components: { App },
+/** 
+ * 创建和挂载根实例 
+ * 
+ * 1. 创建的router实例是有命名规范的，要使用router命名，否则将报错。
+ * 使用vue router 的过程中抱Error in render: "TypeError: Cannot read property 'matched' of undefined"的错误
+ * 
+ */
+const app = new Vue({
   router,
   store,
+  components: { App },
   template: '<App/>'
-}).$mount('#app')
+})
+app.$mount('#app')

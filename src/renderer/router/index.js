@@ -11,6 +11,11 @@ export default new Router({
       component: require('@/components/LandingPage').default
     },
     {
+      path: '/TcpProxy',
+      name: 'tcp-proxy',
+      component: require('@/components/TcpProxy').default
+    },
+    {
       path: '*',
       redirect: '/'
     }

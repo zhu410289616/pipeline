@@ -1,14 +1,12 @@
 <template>
-<div>
-    {{ message }}
+<div class="http">
+    我是http代理页
 </div>
 </template>
 
 <script>
 export default {
-    data() {
-        message: '我是http代理页'
-    }
+    
 }
 </script>
 

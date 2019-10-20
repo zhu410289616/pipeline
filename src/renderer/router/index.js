@@ -13,17 +13,17 @@ export default new Router({
     {
       path: '/TcpProxy',
       name: 'tcp-proxy',
-      component: require('@/components/TcpProxy')
+      component: () => import('@/components/TcpProxy')
     },
     {
       path: '/HttpProxy',
       name: 'http-proxy',
-      component: require('@/components/HttpProxy')
+      component: () => import('@/components/HttpProxy')
     },
     {
       path: '/About',
       name: 'about',
-      component: require('@/components/About')
+      component: () => import('@/components/About')
     },
     {
       path: '*',

@@ -1,17 +1,12 @@
 <template>
-<div>
-    {{ message }}
+<div class="app">
+    我是tcp代理页: username: {{$route.params.username}}
 </div>
 </template>
 
 <script>
 export default {
-    data() {
-        message: '我是tcp代理页';
-        return {
-            message
-        }
-    }
+    
 }
 </script>
 

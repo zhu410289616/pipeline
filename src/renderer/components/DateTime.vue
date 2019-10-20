@@ -27,7 +27,6 @@ var formatDateFunction = function(value) {
 
   export default {
     name: "DateTime",
-    el: "#date-time",
     data() {
         return {
             date: new Date()

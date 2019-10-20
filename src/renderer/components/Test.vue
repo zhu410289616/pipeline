@@ -12,7 +12,7 @@
 
 <script>
 export default {
-    name: 'pipeline',
+    name: 'Test',
     data() {
         message: 'pipeline'
     }

@@ -1,14 +1,13 @@
 <template>
 <div>
-    我是http代理页
+    {{ message }}
 </div>
 </template>
 
 <script>
 export default {
-    name: 'HttpProxy',
     data() {
-        message: 'pipeline'
+        message: '我是http代理页'
     }
 }
 </script>

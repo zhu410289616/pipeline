@@ -52,8 +52,19 @@
       </el-submenu>
     </el-menu>
   </el-aside>
+      <div>
+          <el-menu default-active="1" class="el-menu-vertical-demo" style="min-height:800px" @select="handleSelect">
+              <el-menu-item index="1"><i class="el-icon-message"></i>导航一</el-menu-item>
+              <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
+              <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
+          </el-menu>
+      </div>
+
       <keep-alive>
         <!-- 路由出口 -->
+        <router-link to="/TcpProxy">Go to TcpProxy</router-link>
+        <router-link to="/HttpProxy">Go to HttpProxy</router-link>
+        <router-link to="/About">Go to About</router-link>
         <!-- 路由匹配到的组件将渲染在这里 -->
         <router-view></router-view>
       </keep-alive>
@@ -78,6 +89,21 @@
       };
       return {
         tableData: Array(20).fill(item)
+      }
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        switch(key) {
+            case '1':
+                this.$router.push('/TcpProxy');
+                break;
+            case '2':
+                this.$router.push('/HttpProxy');
+                break;
+            default:
+                this.$router.push('/About');
+                break;
+        }
       }
     }
   }

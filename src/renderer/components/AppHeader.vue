@@ -26,9 +26,7 @@
 
   export default {
     components: { DateTime },
-    data() {
-      
-    }
+    
   }
 </script>
 

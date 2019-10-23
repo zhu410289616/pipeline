@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+//解决vue报错：NavigationDuplicated {_name: "NavigationDuplicated", name: "NavigationDuplicated"}
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 Vue.use(Router)
 
 export default new Router({
@@ -9,6 +15,11 @@ export default new Router({
       path: '/',
       name: 'landing-page',
       component: require('@/components/LandingPage').default
+    },
+    {
+      path: '/TcpService',
+      name: 'tcp-service',
+      component: () => import('@/components/TcpService')
     },
     {
       path: '/TcpProxy',

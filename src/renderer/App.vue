@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header style="height:160px">
+      <el-header style="height:60px">
         <AppHeader></AppHeader>
       </el-header>
 
@@ -11,6 +11,9 @@
               <el-menu-item index="/TcpProxy"><i class="el-icon-message"></i>导航一</el-menu-item>
               <el-menu-item index="/HttpProxy"><i class="el-icon-menu"></i>导航二</el-menu-item>
               <el-menu-item index="/About"><i class="el-icon-setting"></i>导航三</el-menu-item>
+              <el-menu-item v-for="(item, i) in navList" :key="i" :index="item.path">
+                {{ item.name }}
+              </el-menu-item>
           </el-menu>
         </el-aside>
 
@@ -43,7 +46,12 @@
         address: '上海市普陀区金沙江路 1518 弄'
       };
       return {
-        tableData: Array(20).fill(item)
+        navList: [
+          {name:'tcp-service', path:'/TcpService'},
+          {name:'tcp-proxy', path:'/TcpProxy'},
+          {name:'http-proxy', path:'/HttpProxy'},
+          {name:'about', path:'/About'}
+        ]
       }
     },
     methods: {

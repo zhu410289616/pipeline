@@ -2,7 +2,7 @@
     <div>
         <div>
             <DateTime></DateTime>
-            <img id="logo" src="../assets/logo.png" >  
+            <img id="logo" src="../assets/logo.png" v-show="false">  
         </div>
     </div>
 </template>
@@ -19,9 +19,9 @@
 <style>
 
   #logo {
-    height: auto;
+    width: 30%;
+    height: 30%;
     margin-bottom: 20px;
-    width: auto;
   }
 
 </style>

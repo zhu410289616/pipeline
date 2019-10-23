@@ -1,19 +1,30 @@
 <template>
-    <div class="title">
-        Host:
-        <el-autocomplete placeholder="请输入IP地址" v-model="currentHost" :fetch-suggestions="queryHosts" @select="handleHostSelect">
-            <i class="el-icon-edit el-input__icon" slot="suffix" @click="handleIconClick"> </i>
-            <template slot-scope="{ item }">
-                <div class="name">{{ item.host }}</div>
-            </template>
-        </el-autocomplete>
-        Port:
-        <el-autocomplete placeholder="请输入端口号" v-model="currentPort"  :fetch-suggestions="queryPorts" @select="handlePortSelect">
-            <i class="el-icon-edit el-input__icon" slot="suffix" @click="handleIconClick"> </i>
-            <template slot-scope="{ item }">
-                <div class="name">{{ item.port }}</div>
-            </template>
-        </el-autocomplete>
+    <div>
+        <table>
+            <tr>
+                <td>地址:</td>
+                <td>
+                    <el-autocomplete placeholder="请输入IP地址" v-model="currentHost" :fetch-suggestions="queryHosts" @select="handleHostSelect">
+                        <i class="el-icon-edit el-input__icon" slot="suffix" @click="handleIconClick"> </i>
+                        <template slot-scope="{ item }">
+                            <div class="name">{{ item.host }}</div>
+                        </template>
+                    </el-autocomplete>
+                </td>
+            </tr>
+
+            <tr>
+                <td>端口:</td>
+                <td>
+                    <el-autocomplete placeholder="请输入端口号" v-model="currentPort"  :fetch-suggestions="queryPorts" @select="handlePortSelect">
+                        <i class="el-icon-edit el-input__icon" slot="suffix" @click="handleIconClick"> </i>
+                        <template slot-scope="{ item }">
+                            <div class="name">{{ item.port }}</div>
+                        </template>
+                    </el-autocomplete>
+                </td>
+            </tr>
+        </table>
     </div>
 </template>
 

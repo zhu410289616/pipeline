@@ -6,6 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "tcp",
+    "udp",
+    "http",
+    "https"
+  ],
+  "author": "zhuruhong",
+  "license": "MIT",
+  "dependencies": {
+    "log4js": "^4.0.2"
+  }
 }

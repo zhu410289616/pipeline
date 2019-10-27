@@ -5,6 +5,9 @@
     <template>
         <el-tabs v-model="activeName" @tab-click="handleTabClick">
             <el-tab-pane label="服务端" name="first">
+                <div style="display: flex">
+
+                <div  style="border:1px solid #001; padding: 5px;">
                 <table>
                     <tr>
                         <td>
@@ -13,23 +16,42 @@
                     </tr>
                     <tr>
                         <td>
-                        <el-button style="width:80%;center" @click="handleServerAction">启动服务</el-button>
+                        <el-button style="width:100%" @click="handleServerAction">启动服务</el-button>
                         </td>
                     </tr>
                 </table>
+                </div>
+
+                <div style="width:auto;border:1px dashed #000; margin: 0px 5px 0px 5px">
+                    <template v-for="{msg, index} in dataSender">
+                        <DataSend @click="sendDataAction"></DataSend>
+                    </template>
+                </div>
+
+                </div>
+
+                <div></div>
+                
+                
+
+                
+
+                
+                
+            </el-tab-pane>
+
+            <el-tab-pane label="搬运工" name="second">
+                配置管理
                 <div style="width:250px">
                 <el-row>
                     <HostPort></HostPort>
                 </el-row>
                 <el-row>
                     <el-col>
-                    <el-button style="width:100%" @click="handleServerAction">启动服务</el-button>
+                    <el-button style="width:100%" @click="handleServerAction">启动</el-button>
                     </el-col>
                 </el-row>
                 </div>
-            </el-tab-pane>
-            <el-tab-pane label="搬运工" name="second">
-                配置管理
             </el-tab-pane>
             <el-tab-pane label="客户端" name="third">
                 角色管理
@@ -47,21 +69,40 @@
 
 <script>
 import HostPort from './HostPort.vue'
+import DataSend from './DataSend.vue'
+
+import net from 'net'
+import TcpService from '../../brook/TcpService.js'
 
 export default {
-    components: { HostPort },
+    components: { HostPort, DataSend, TcpService },
     data() {
         return {
-            activeName: 'first'
+            activeName: 'first',
+            dataSender: [
+                {name:"1", value:"one"},
+                {name:"2", value:"two"},
+                {name:"3", value:"three"}
+            ]
         }
     },
+    mounted() {
+    },
     methods: {
-        handleTabClick(tab, event) {
+        
+        sendDataAction: function() {
+            console.log('sendDataAction');
+        },
+
+        handleTabClick: function(tab, event) {
             console.log(tab, event);
         },
-        handleServerAction() {
-
+        handleServerAction: function() {
+            console.log('handleServerAction 1');
+            TcpService.startServer(1921);
+            console.log('handleServerAction 2, sum: ' + TcpService.testSum(2,3));
         }
+        
     }
 }
 </script>

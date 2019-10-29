@@ -8,8 +8,11 @@ import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' //lang i18n
-
 Vue.use(ElementUI, { locale })
+
+//设置全局js
+import utils from '../utils/utils.js'
+Vue.prototype.$utils = utils
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios

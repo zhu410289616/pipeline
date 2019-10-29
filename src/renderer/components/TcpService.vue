@@ -11,7 +11,7 @@
                 <table>
                     <tr>
                         <td>
-                        <HostPort></HostPort>
+                        <HostPort :hostTitle="hostTitle" :portTitle="portTitle"></HostPort>
                         </td>
                     </tr>
                     <tr>
@@ -87,6 +87,8 @@ export default {
     data() {
         return {
             activeName: 'first',
+            hostTitle: "Host：",
+            portTitle: "Port：",
             dataSender: [
                 {name:"1", value:"one"},
                 {name:"2", value:"two"},

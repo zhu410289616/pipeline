@@ -2,7 +2,7 @@
     <div>
         <table>
             <tr>
-                <td>地址:</td>
+                <td>{{ hostTitle }}</td>
                 <td>
                     <el-autocomplete placeholder="请输入IP地址" v-model="currentHost" :fetch-suggestions="queryHosts" @select="handleHostSelect">
                         <i class="el-icon-edit el-input__icon" slot="suffix" @click="handleIconClick"> </i>
@@ -14,7 +14,7 @@
             </tr>
 
             <tr>
-                <td>端口:</td>
+                <td>{{ portTitle }}</td>
                 <td>
                     <el-autocomplete placeholder="请输入端口号" v-model="currentPort"  :fetch-suggestions="queryPorts" @select="handlePortSelect">
                         <i class="el-icon-edit el-input__icon" slot="suffix" @click="handleIconClick"> </i>
@@ -30,6 +30,10 @@
 
 <script>
 export default {
+    props: [
+        'hostTitle',
+        'portTitle'
+    ],
     data() {
         return {
             hosts: [],

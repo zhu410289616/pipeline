@@ -55,9 +55,17 @@
             </el-tab-pane>
             <el-tab-pane label="客户端" name="third">
                 角色管理
+                <el-input type="textarea" :rows="2" placeholder="请输入自定义编码器逻辑代码" v-model="encoderTextArea">
+                </el-input>
+                <el-button style="width:100%" @click="encoderLogicAction">执行</el-button>
             </el-tab-pane>
             <el-tab-pane label="记事本" name="fourth">
                 定时任务补偿
+                <el-row>
+                    <el-col>
+                    <el-button style="width:100%" @click="testAction">启动</el-button>
+                    </el-col>
+                </el-row>
             </el-tab-pane>
         </el-tabs>
     </template>
@@ -83,7 +91,10 @@ export default {
                 {name:"1", value:"one"},
                 {name:"2", value:"two"},
                 {name:"3", value:"three"}
-            ]
+            ],
+            encoderTextArea: 'var jsText = "return function(){alert(1+1)}"; var jscode = new Function(jsText)(); jscode();',
+            encoderTextArea1: 'function test(str){console.log(str);alert(str)};test("sdf")',
+            decoderTextArea: ''
         }
     },
     mounted() {
@@ -101,6 +112,12 @@ export default {
             console.log('handleServerAction 1');
             TcpService.startServer(1921);
             console.log('handleServerAction 2, sum: ' + TcpService.testSum(2,3));
+        },
+        encoderLogicAction: function() {
+            eval(this.encoderTextArea);
+        },
+        testAction: function() {
+            this.$utils.testFunction();
         }
         
     }
